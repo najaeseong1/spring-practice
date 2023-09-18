@@ -14,6 +14,12 @@ public class Main2 {
 		
 		Hotel hotel1 = ct.getBean("hotel1", Hotel.class);
 		hotel1.inform();
+
+		System.out.println("=======================================");
+
+		Hotel hotel2 = ct.getBean("hotel2", Hotel.class);
+		hotel2.inform();
+
 		
 	}
 

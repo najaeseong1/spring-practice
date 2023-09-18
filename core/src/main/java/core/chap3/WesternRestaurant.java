@@ -1,10 +1,10 @@
 package core.chap3;
 
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
 
-@NoArgsConstructor
-@AllArgsConstructor
+import lombok.Setter;
+
+@Setter
 public class WesternRestaurant implements Restaurant {
 	
 	private Chef chef;
@@ -12,11 +12,18 @@ public class WesternRestaurant implements Restaurant {
 	//요리 코스
 	private Course course;
 	
+	
 	// 요리를 주문하는 기능
 	public void order() {
 		System.out.println("서양 요리를 주문합니다.");
 		course.combineMenu();
 		chef.cook();
+	}
+
+	public WesternRestaurant(@Qualifier("frenchChef") Chef chef, @Qualifier("frenchCourse")Course course) {
+		super();
+		this.chef = chef;
+		this.course = course;
 	}
 
 }
